@@ -93,7 +93,13 @@ h2{
     margin: 10px auto;
     width: 90%;
     height: 200px;
-    background-color: blue;
+    background-color: #7c7c80;
+    text-align: center;
+}
+
+.sec p{
+    margin: 0;
+    padding-top:10px;
 }
 
 .btn{
