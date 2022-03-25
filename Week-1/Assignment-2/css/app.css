@@ -7,30 +7,59 @@ body{
 
 /*-------------------Navigator-------------------------*/
 nav{
+    display: flex;
+    flex-wrap: wrap;
     background-color: #d7dbe0;
     overflow: auto;
 }
 
+
+label{
+    cursor: pointer;
+    margin-left: auto;
+}
+
+input{
+    display: none;
+}
+
 h1{
- padding: 0 0 0 30px;
+    padding: 0 0 0 30px;
+}
+
+
+
+.nav_left{
+    text-align: center;
 }
 
 .nav_right{
-    text-align: center;
-}
-.nav_left{
-    margin: 0;
-    padding: 0px;
     font-size: 1.5rem;
     text-align: center;
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0px;
     list-style: none;
+    flex: 1 100%;
+    max-height: 0;
+    overflow: hidden;
+
 }
-.nav_left > li{
-    margin-bottom: 0.5rem;
+.nav_right > li{
+    padding: 5px;
 }
-.nav_left li:last-child{
-    margin-bottom: 19px;
+
+.nav_right > li:hover{
+    background-color: #5d5d5d;
+    border-radius: 25px;
+    color: #fff;
 }
+
+input:checked + ul{
+    max-height: 150px;
+}
+
+
 
 /*---------------------Header-------------------------------*/
 
@@ -58,7 +87,6 @@ h2{
 
 .Sec_Content{
     overflow: auto;
-/*    background-color: red;*/
 }
 
 .sec{
@@ -90,24 +118,25 @@ button:hover{
 
 @media (min-width: 769px) {
     
-    nav{
-        display: flex;
+    label{
+        display: none;
     }
     
-    .nav_left li{
+    .nav_right li{
+        border: none;
         margin-bottom: 0;
         padding: 0 30px 0 0;
-    }
-    .nav_left li:last-child{
-        margin-bottom: 0;
+        pointer-events: none;
     }
     
-    .nav_left{
+    .nav_right{
+        max-height: 150px;
+        background-color: #d7dbe0;
+        flex: 1 0;
         display: flex;
         align-items: center;
-        margin-left: auto;
+        justify-content: flex-end;
     }
-    
     
 
     .Sec_Content{
@@ -115,7 +144,6 @@ button:hover{
         margin: auto;
         display: flex;
         flex-wrap: wrap;
-/*        background-color: red;*/
     }
     
     .sec{
