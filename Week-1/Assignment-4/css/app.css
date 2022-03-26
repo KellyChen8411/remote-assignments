@@ -110,7 +110,7 @@ nav > div {
 
 .searchboxArea_inner::before{
     content: "";
-    background: url("img/search_zoom_icon.png");
+    background: url("../img/search_zoom_icon.png");
     background-size: cover;
     z-index: 1;
     position:absolute;
@@ -136,7 +136,7 @@ nav > div {
 
 .langBoxArea>button::before{
     content: "";
-    background: url("img/language_icon.png");
+    background: url("../img/language_icon.png");
     background-size: cover;
     z-index: 1;
     position:absolute;
@@ -148,7 +148,7 @@ nav > div {
 
 .langBoxArea>button::after{
     content: "";
-    background: url("img/triangle_icon.png");
+    background: url("../img/triangle_icon.png");
     background-size: cover;
     z-index: 1;
     position:absolute;
@@ -190,7 +190,7 @@ nav > div {
 .registrationArea::after{
     height: calc(100vh - 112px);
     content: '';
-    background: url("img/io-promo.svg") 55% top / cover;
+    background: url("../img/io-promo.svg") 55% top / cover;
     position: absolute;
     top: 0;
     width: 100vw;
