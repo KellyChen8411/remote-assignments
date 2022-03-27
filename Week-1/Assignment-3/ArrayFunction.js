@@ -10,30 +10,13 @@ function countAandB(inputArray){
   }
 
 
-
-
   function toNumber(inputArray){
       let newArr = [];
       for (let i = 0; i < inputArray.length; i++) {
 
-          switch(inputArray[i]){
-            case 'a':
-                  newArr.push(1);
-                  break;
-            case 'b':
-                  newArr.push(2);
-                  break;
-            case 'c':
-                  newArr.push(3);
-                  break;
-            case 'd':
-                  newArr.push(4);
-                  break;
-            case 'e':
-                  newArr.push(5);
-                  break;   
-            }
-        }
+            newArr.push(inputArray[i].charCodeAt(0) - 96);
+      }
+
       return newArr;
   }
 
@@ -43,5 +26,4 @@ function countAandB(inputArray){
   let input2 = ['e', 'd', 'c', 'd', 'e'];
   console.log(countAandB(input2)); // should print 0
   console.log(toNumber(input2)); // should print [5, 4, 3, 4, 5]
-          
- 
+
