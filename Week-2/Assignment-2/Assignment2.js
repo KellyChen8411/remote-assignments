@@ -1,9 +1,8 @@
 function avg(data){
     
     let totalPrice = 0;
-    const values = Object.values(data);
-    const size = values[0];
-    const productsList = values[1];
+    const productsList = data.products;
+    const size = productsList.length;
 
     productsList.forEach(product => {
         totalPrice += product['price'];
