@@ -1,13 +1,18 @@
 *{
     box-sizing: border-box;
 }
+
+.registrationArea_grid>div>h3 .buildAreaHeader>div>h2 .viewProductBtn{
+    font-family: Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+}
+
 body{
     margin: 0;
 }
 
 .navigator{
     position: sticky;
-/*    top: 0;*/
+    top: 0;
     z-index: 10;
 }
 
@@ -34,7 +39,7 @@ body{
     cursor: pointer;
 }
 
-img{
+.nav_webLogo a img{
     width:185px;
     height: 32px;
     vertical-align: middle;
@@ -229,7 +234,6 @@ nav > div {
     align-items: flex-start;
 }
 .registrationArea_grid>div>h3{
-/*    font-family: Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;*/
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 24px;
@@ -247,5 +251,174 @@ nav > div {
     cursor: pointer;
     overflow: hidden;
     
+}
+
+.buildAreaSec{
+    padding: 40px 0;
+    position: sticky;
+    bottom: -30vh;
+    z-index: -1;
+}
+
+.buildAreaDiv{
+    padding: 0 24px;
+}
+
+.buildAreaHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.buildAreaHeader>div>h2{
+    font-size: 44px;
+    margin: 0;
+}
+
+.buildAreaBrand{
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+}
+
+.brandItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brandItem>div>figure{
+    height: 96px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.brandImg{
+    width: 64px;
+    height: auto;
+}
+
+.viewProductArea{
+    padding: 40px 0 100px;
+}
+
+.viewProductDivOuter{
+    padding: 0 24px;
+}
+
+.viewProductDiv{
+    display: flex;
+    justify-content:center;
+    padding-top: 8px;
+}
+
+.viewProductBtn{
+    margin: 4px 4px 4px 12px;
+    padding: 0 24px;
+    border: 0;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 36px;
+}
+
+.viewProductBtn:hover{
+    background-color: #1765cc;
+}
+
+.eventAreaOuterCon{
+    margin: 0 auto;
+    padding: 0 24px;
+    max-width: 1488px;
+}
+
+.eventAreaInnerCon{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 24px;
+}
+
+.eventAreaGridItem{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+}
+
+.eventFigure1{
+    margin: 0;
+    position: relative;
+}
+
+.eventFigure1::before{
+    content: "";
+    width: 160px;
+    height: 160px;
+    background-image: url("https://developers.google.com/site-assets/images/home/events-graphic.png");
+    background-size: contain;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.eventFigure2{
+    margin: 0;
+    position: relative;
+}
+
+.eventFigure2::before{
+    content: "";
+    width: 160px;
+    height: 160px;
+    background-image: url("https://developers.google.com/site-assets/images/home/community-graphic.png");
+    background-size: contain;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.eventImg {
+/*    max-width: 100%;*/
+    width: 100%;
+    height: auto;
+}
+
+.eventDesContainerOuter{
+    padding: 16px;
+}
+
+.eventDesContainerInner{
+    display: flex;
+    flex-direction: column;
+}
+
+.eventBtnContainer{
+    display: flex;
+    padding-top: 16px;
+}
+
+.eventBtn{
+    margin: 4px 4px 4px 12px;
+    padding: 0 24px;
+    height: 36px;
+    background-color: #fff;
+    color: #1a73e8;;
+    border: 1px solid #dadce0;
+    border-radius: 3px;
+}
+
+.eventBtn:hover{
+    background-color: #e8f0fe;
+}
+
+.eventDesContainerInner>h3{
+    margin-top: 0px;
+    font-size: 24px;
+    color: #1a73e8;
 }
 
