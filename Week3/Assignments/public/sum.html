@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Sum Page</title>
+    </head>
+    <body>
+        <div class="AJAXarea">
+            <form class="inputForm" action="/" method="get">
+                <input type="number" name="number" class="inputNum">
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        
+        <script>
+            const inputForm = document.querySelector('.inputForm');
+            inputForm.addEventListener('submit', (e)=>{
+                e.preventDefault(); //prevent data send by form
+                //retrieve data from form
+                const inputName = document.querySelector('.inputNum').name;
+                const inputVal = document.querySelector('.inputNum').value;
+                //AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState===4 && xhr.status===200){
+                        const AJAXarea = document.querySelector('.AJAXarea');
+                        AJAXarea.innerHTML = `<h1>The sum result is: ${xhr.responseText}</h1>`;
+                    }
+                }
+                xhr.open('GET', `/data?${inputName}=${inputVal}`);
+                xhr.send();
+            })
+        </script>
+    </body>
+</html>
