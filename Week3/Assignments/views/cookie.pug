@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+    head
+        title Home Page
+    body
+        if userName
+            h1 Welcome, #{userName}!
+            form(action="/clearCookie" method="post")
+                button(type="submit") Log Out
+        else 
+            form(action="/trackName" method="get")
+                label(for="name") User Name:
+                br
+                input(id="name" type="text" name="username")
+                br
+                br
+                button(type="submit") Log In 
