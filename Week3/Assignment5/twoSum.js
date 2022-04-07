@@ -1,11 +1,12 @@
 function twoSum(nums, target){
+    let hashmap = new Map();
     let complement;
     for(let i=0; i<nums.length; i++){
         complement = target - nums[i];
-        for(let j=i+1; j<nums.length; j++){
-            if(nums[j] === complement){
-                return [i,j];
-            }
+        if(hashmap.has(complement)){
+            return [hashmap.get(complement), i]
+        } else{
+            hashmap.set(nums[i], i);
         }
     }
 }
