@@ -1,0 +1,9 @@
+body{
+    background-color: aquamarine;
+}
+
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

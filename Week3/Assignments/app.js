@@ -1,6 +1,5 @@
 // ------------Applicaiton initial setting-------------
 const express = require('express');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
@@ -9,7 +8,6 @@ const sumNum = require('./sumFunction');
 app.set('view engine', 'pug');
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.get('/', (req, res)=>{
@@ -49,11 +47,11 @@ app.post('/clearCookie', (req,res)=>{
     res.redirect('/myName');
 })
 
-// app.use(function(err, req, res, next) {
-//     res.locals.error = err;
-//     res.status(500);
-//     res.render('error');
-//   })
+app.use(function(err, req, res, next) {
+    res.locals.error = err;
+    res.status(500);
+    res.render('error');
+  })
 
 app.listen(port, () => {
     console.log(`Applicaiton is operating and listening on port ${port}`)

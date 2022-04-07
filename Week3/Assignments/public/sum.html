@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Sum Page</title>
+        <title>Sum Page</title>
+        <link rel="stylesheet" href="/stylesheets/AJAX.css">
     </head>
     <body>
         <div class="AJAXarea">
             <form class="inputForm" action="/" method="get">
-                <input type="number" name="number" class="inputNum">
-                <br />
+                <label for="number">Number to Sum:</label>
+                <input id="number" type="number" name="number" class="inputNum">
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -25,7 +26,9 @@
                 xhr.onreadystatechange = function(){
                     if(xhr.readyState===4 && xhr.status===200){
                         const AJAXarea = document.querySelector('.AJAXarea');
-                        AJAXarea.innerHTML = `<h1>The sum result is: ${xhr.responseText}</h1>`;
+                        AJAXarea.classList.remove('AJAXarea');
+                        AJAXarea.classList.add('AJAXresult');
+                        AJAXarea.innerHTML = `<p>The sum result is: ${xhr.responseText}</p>`;
                     }
                 }
                 xhr.open('GET', `/data?${inputName}=${inputVal}`);

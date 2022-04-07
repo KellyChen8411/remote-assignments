@@ -1,8 +1,13 @@
-doctype html
-html(lang='en')
-    head
-        title Error Page
-    body
-        p test
-        //- h1= error.name
-        //- p= error.message
+extends layouts/layout 
+
+
+block header  
+    title Error Page
+    link(rel="stylesheet", href="/stylesheets/homePage.css")
+block content
+    .mainDiv
+        h1= error.name
+        p= error.message
+        br 
+        br 
+        p= error.stack

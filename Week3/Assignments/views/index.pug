@@ -1,6 +1,10 @@
-doctype html
-html(lang='en')
-    head
-        title Home Page
-    body
+extends layouts/layout 
+
+block header  
+    title Home Page
+    link(rel="stylesheet", href="/stylesheets/homePage.css")
+block content
+    .mainDiv
         h1 Hello, My Server!
+
+

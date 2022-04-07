@@ -1,0 +1,50 @@
+body{
+    background-color: #1fbfc5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.AJAXarea{
+    background-color: white;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.AJAXresult{
+    background-color: white;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+
+.AJAXarea>form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.AJAXarea>form>button{
+    height: 36px;
+    padding: 10px 24px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #2d75eb;
+    color: white;
+}
+
+.AJAXarea>form>button:hover{
+    background-color:#1363e8;
+    cursor: pointer;
+}
