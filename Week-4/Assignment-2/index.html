@@ -2,28 +2,21 @@
 <html>
     <body>
 
-        <h1>Ajax</h1>
-        <button type="button" id="AJAXbtn">AJAX</button>
+        <h1 id="title">Ajax</h1>
+        <button type="button" id="Callback">Callback Function</button>
+        <button type="button" id="promise">Promise</button>
+        <button type="button" id="async">Async / Await</button>
+        <button type="button" id="clear">Clear Page</button>
         <br />
         <br />
         <div id=products class="products">
         </div>
 
         <script>
-            function ajax(src, callback){
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function(){
-                    if(xhr.readyState === 4 && xhr.status === 200){
-                        const products = JSON.parse(xhr.responseText);
-                        callback(products);
-                    }
-                }
-                xhr.open("GET", src);
-                xhr.send();
-            }
+            const URL = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
+            const mainDiv = document.getElementById("products");
             
             function render(data){
-                const mainDiv = document.getElementById("products");
                 
                 for(let i=0; i<data.length; i++){
                     let {name, price, description} = data[i];
@@ -43,16 +36,74 @@
                     newDiv.append(nameTag, priceTag, descriptionTag);
                     mainDiv.appendChild(newDiv);
                 }
-                
-                
+
+
             }
             
-            const URL = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
-
-            const BTN = document.getElementById("AJAXbtn");
-            BTN.addEventListener("click", ()=>{
+            function ajax(src, callback){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4){
+                        if(xhr.status === 200){
+                            const products = JSON.parse(xhr.responseText);
+                            callback(products);
+                        }else{
+                            alert(`There is something wrong with ststus code: ${xhr.status}`)
+                        }
+                        
+                    }
+                }
+                xhr.open("GET", src);
+                xhr.send();
+            }
+            
+            function ajaxPromise(src){
+                return new Promise((resolve, reject)=>{
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function(){
+                        if(xhr.readyState === 4 && xhr.status === 200){
+                            const products = JSON.parse(xhr.responseText);
+                            resolve(products);
+                        }
+                    }
+                    xhr.open("GET", src);
+                    xhr.send();
+                });
+            }
+            
+            function ajaxAsync(src){
+                fetch(src)
+                    .then(response => response.json())
+                    .then(render)
+                    .catch(err=>console.error(err));
+            }
+            
+            //For callback function
+            const callbackBTN = document.getElementById("Callback");
+            callbackBTN.addEventListener("click", ()=>{
                 ajax(URL, render);
-            })
+            });
+            
+            //For promise
+            const promiseBTN = document.getElementById("promise");
+            promiseBTN.addEventListener("click", ()=>{
+                ajaxPromise(URL)
+                    .then(render)
+                    .catch(err=>console.error(err));
+            });
+            
+            //Async/Await
+            const asyncBTN = document.getElementById("async");
+            asyncBTN.addEventListener("click", ()=>{
+                ajaxAsync(URL);
+            });
+            
+            //Clear Page
+            const clearBTN = document.getElementById("clear");
+            clearBTN.addEventListener("click", ()=>{
+                mainDiv.innerHTML="";
+            });
+            
         </script>
     </body>
 </html>
