@@ -61,9 +61,13 @@
                 return new Promise((resolve, reject)=>{
                     var xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function(){
-                        if(xhr.readyState === 4 && xhr.status === 200){
-                            const products = JSON.parse(xhr.responseText);
-                            resolve(products);
+                        if(xhr.readyState === 4){
+                            if(xhr.status === 200){
+                                const products = JSON.parse(xhr.responseText);
+                                resolve(products);
+                            }else{
+                                reject(`There is something wrong with ststus code: ${xhr.status}`);
+                            }
                         }
                     }
                     xhr.open("GET", src);
@@ -71,11 +75,18 @@
                 });
             }
             
-            function ajaxAsync(src){
-                fetch(src)
-                    .then(response => response.json())
-                    .then(render)
-                    .catch(err=>console.error(err));
+            async function ajaxAsync(src){
+                try{
+                    const response = await fetch(src);
+                    const products = await response.json();
+                    
+                    render(products);
+                }catch(err){
+                    alert(err)
+                }
+                
+                
+                
             }
             
             //For callback function
@@ -89,7 +100,7 @@
             promiseBTN.addEventListener("click", ()=>{
                 ajaxPromise(URL)
                     .then(render)
-                    .catch(err=>console.error(err));
+                    .catch(err=>alert(err));
             });
             
             //Async/Await
