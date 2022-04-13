@@ -4,21 +4,55 @@
 
         <h1>Ajax</h1>
         <button type="button" id="AJAXbtn">AJAX</button>
+        <br />
+        <br />
+        <div id=products class="products">
+        </div>
 
         <script>
-            function ajax(src){
+            function ajax(src, callback){
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function(){
                     if(xhr.readyState === 4 && xhr.status === 200){
-                        console.log(xhr.responseText);
+                        const products = JSON.parse(xhr.responseText);
+                        callback(products);
                     }
                 }
                 xhr.open("GET", src);
                 xhr.send();
             }
+            
+            function render(data){
+                const mainDiv = document.getElementById("products");
+                
+                for(let i=0; i<data.length; i++){
+                    let {name, price, description} = data[i];
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("id", "product");
+                    newDiv.setAttribute("class", "product");
+                    let nameTag = document.createElement("h1");
+                    let priceTag = document.createElement("p");
+                    priceTag.setAttribute("class", "price");
+                    let descriptionTag = document.createElement("p");
+                    descriptionTag.setAttribute("class", "description");
+
+                    nameTag.innerHTML = name;
+                    priceTag.innerHTML = `$: ${price}`;
+                    descriptionTag.innerHTML = description;
+
+                    newDiv.append(nameTag, priceTag, descriptionTag);
+                    mainDiv.appendChild(newDiv);
+                }
+                
+                
+            }
+            
             const URL = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
+
             const BTN = document.getElementById("AJAXbtn");
-            BTN.addEventListener("click", ajax(URL))
+            BTN.addEventListener("click", ()=>{
+                ajax(URL, render);
+            })
         </script>
     </body>
 </html>
