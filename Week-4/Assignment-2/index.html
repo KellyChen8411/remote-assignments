@@ -13,6 +13,8 @@
                         console.log(xhr.responseText);
                     }
                 }
+                xhr.open("GET", src);
+                xhr.send();
             }
             const URL = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
             const BTN = document.getElementById("AJAXbtn");
