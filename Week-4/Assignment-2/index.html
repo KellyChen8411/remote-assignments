@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h1>Ajax</h1>
+        <button type="button" id="AJAXbtn">AJAX</button>
+
+        <script>
+            function ajax(src){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4 && xhr.status === 200){
+                        console.log(xhr.responseText);
+                    }
+                }
+            }
+            const URL = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
+            const BTN = document.getElementById("AJAXbtn");
+            BTN.addEventListener("click", ajax(URL))
+        </script>
+    </body>
+</html>
