@@ -1,0 +1,7 @@
+extends layout
+
+block mainContent
+    h1 Welcome, #{useremail} 
+    br
+    form(action="/logOut" method="post") 
+        button(type="submit") Log Out
