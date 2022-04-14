@@ -1,33 +1,39 @@
 extends layout
 
-block mainContent
-    p Sign-up Form
-    form(action="/signUP" method="post")
-        label(for="email") Email: 
-        input(type="text" id="email" name="email")
-        br
-        br
-        label(for="password") Password: 
-        input(type="text" id="password" name="password")
-        br
-        br
-        button(type="submit") Submit
+block css
+    link(rel="stylesheet", href="/stylesheets/user.css")
 
-    p Sign-in Form
-    form(action="/signIN" method="post")
-        label(for="email") Email: 
-        input(type="text" id="email" name="email")
-        br
-        br
-        label(for="password") Password: 
-        input(type="text" id="password" name="password")
-        br
-        br
-        button(type="submit") Submit
+block mainContent
+    ul 
+        li 
+            a.link#signUPLink(href="/") sign up 
+        li 
+            a.link#signINLink(href="/") sign in
+
+    .outerDiv#signUPDiv
+        .formDiv
+            p Sign-up Form
+            form(action="/signUP" method="post")
+                label(for="email") Email: 
+                input(type="text" id="email" name="email")
+                label(for="password") Password: 
+                input(type="text" id="password" name="password")
+                button(type="submit") Submit
+    .outerDiv.hide#signINDiv
+        .formDiv
+            p Sign-in Form
+            form(action="/signIN" method="post")
+                label(for="email") Email: 
+                input(type="text" id="email" name="email")
+                label(for="password") Password: 
+                input(type="text" id="password" name="password")
+                button(type="submit") Submit
 
     if errors
         each error in errors
-            p #{error.msg}
+            p.errorMsg #{error.msg}
 
     if userMsg
-        p= userMsg
+        p.errorMsg= userMsg
+
+    script(src='/js/user.js')

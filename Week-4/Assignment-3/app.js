@@ -10,6 +10,7 @@ const app = express();
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded( { extended: true }));
 app.use(cookieParser());
+app.use(express.static('public'));
 
 app.get('/user', (req, res)=>{
     res.render('user');
