@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #95bbe6;
+}
+
+#title{
+    text-align: center
+}
+
+.BTNDiv{
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.products{
+    margin: 40px 0;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+}
+
+.product{
+    background-color: #fff;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.btn{
+    margin: 0 16px;
+    padding: 5px 10px;
+    background-color: #5077a3;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background-color: #1f548f;
+    color: #fff;
+}
+
