@@ -30,6 +30,4 @@ jobs:
       #   run: docker ps
 
       - name: run node
-        run: |
-          npm install
-          node mysqltest.js
+        run: node mysqltest.js
