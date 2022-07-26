@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     container: node:18-alpine
 
-    services:
-      mysqlservice:
-        image: mysql:8
-        env:
-          MYSQL_ROOT_PASSWORD: 12345678
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-        volumes:
-          - ${PWD}/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    # services:
+    #   mysqlservice:
+    #     image: mysql:8
+    #     env:
+    #       MYSQL_ROOT_PASSWORD: 12345678
+    #     ports:
+    #       - 3306:3306
+    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    #     volumes:
+    #       - ${PWD}/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
     steps:
       - name: Checkout code
